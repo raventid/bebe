@@ -29,7 +29,21 @@ void add_history(char* unsued){}
 
 int main(int argc, char** argv) {
 
-puts("bebe Version 0.0.1");
+mpc_parser_t* Number = mpc_new("number");
+mpc_parser_t* Operator = mpc_new("operator");
+mpc_parser_t* Expr = mpc_new("expr");
+mpc_parser_t* Bebe = mpc_new("bebe");
+
+mpca_lang(MPCA_LANG_DEFAULT,
+	"                                               \
+	number   : /-?[0-9]+/ ;                         \
+        operator : '+' | '-' | '*' | '/' ;                    \
+        expr     : <number> | '('<operator><expr>+')' ; \
+        bebe     : /^/ <operator> <expr>+ /$/ ;         \
+        ",	
+	Number,Operator,Expr,Bebe);
+
+puts("bebe Version 0.0.2");
 puts("Press Ctrl+c to Exit\n");
 
 while (1) {
@@ -37,10 +51,22 @@ while (1) {
 
  add_history(input); 
 
- printf("No you're a %s\n", input);
+ mpc_result_t result;
+ if(mpc_parse("<stdin>", input, Bebe, &result)){
+  /*Success, let's print the correct AST*/
+  mpc_ast_print(result.output); 
+  mpc_ast_delete(result.output);
+ } else {
+  /*Failure, let's print what went wrong*/
+  mpc_err_print(result.error);
+  mpc_err_delete(result.error); 
+ }
+
 
  free(input);
 }
 
+/*We should not forget to return memory back to OS :)*/
+mpc_cleanup(4, Number, Operator, Expr, Bebe);
 return 0;
 }
