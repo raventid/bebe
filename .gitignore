@@ -1,4 +1,5 @@
 *
 !*.*
+!makefile
 *.c.swp
 *.o
