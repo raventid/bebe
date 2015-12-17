@@ -17,3 +17,15 @@ Enjoy!
 % 10 6 #=> 4
 ^ 2 3  #=> 8
 ```
+You can easily nest any number of operations using parenthesis
+
+``` clojure
++ (/ 
+     (/ 4 2) 
+     (+ 1 1) 
+  )
+  (- 
+     (/ 8 2) 
+     (- 3 2) 
+  )
+```
