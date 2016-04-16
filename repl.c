@@ -191,7 +191,6 @@ while (1) {
   mpc_err_delete(result.error); 
  }
 
-
  free(input);
 }
 
