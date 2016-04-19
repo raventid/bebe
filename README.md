@@ -9,8 +9,17 @@ See wiki for installation instructions.
 
 Enjoy!
 
+## Installation
 
-# Operators
+At the moment Bebe available and well tested at Debian based linux machines.
+
+To compile Bebe from source you have to clone this repo, and then run make, from project folder.
+
+After compilation you should run bebe repl as ./repl from source folder or you might create a link to this file and put it into /usr/bin/
+
+Good luck!
+
+## Operators
 ``` clojure
 + 4 5  #=> 9
 - 2 1  #=> 1
