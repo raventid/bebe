@@ -15,6 +15,13 @@ At the moment Bebe available and well tested at Debian based linux machines.
 
 To compile Bebe from source you have to clone this repo, and then run make, from project folder.
 
+If you are not sure how to do it, well, on Debian or Ubuntu try:
+
+```
+$ cd /path/to/downloaded/file/bebe
+$ ./make
+```
+
 After compilation you should run bebe repl as ./repl from source folder or you might create a link to this file and put it into /usr/bin/
 
 Good luck!
