@@ -18,7 +18,7 @@ char* readline(char* prompt) {
 }
 
 /*Fake add_history function*/
-void add_history(char* unsued) {}
+void add_history(char* _unused) {}
 
 /*if it is not windows include the editline headers*/
 #else
